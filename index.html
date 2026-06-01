@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Control de Laminas Album Panini 2026</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Tabla de Control de Figuritas — Copa 2026</h1>
+    <p>Álbum Panini 2026 • Click a cada lamina para marcarla como obtenida</p>
+  </header>
+
+  <div class="sticky-bar">
+    <div class="toolbar">
+      <div class="stat" id="stat">Obtidas: 0 / 0</div>
+      <div class="stat" id="dupStat" title="Total de figuritas repetidas">Repetidas: 0</div>
+      <button id="copyDupBtn" type="button">Copiar repetidas</button>
+      <button id="exportBtn" type="button">Exportar</button>
+      <button id="importBtn" type="button">Importar</button>
+      <button id="resetBtn" class="danger" type="button">Limpiar</button>
+      <input type="file" id="importFile" accept="application/json" hidden />
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress"><div class="fill" id="progressFill"></div></div>
+      <div class="progress-label" id="progressLabel">0%</div>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button class="tab active" id="tabCollection" role="tab" aria-selected="true" type="button">📋 Colección</button>
+      <button class="tab" id="tabDup" role="tab" aria-selected="false" type="button">🔁 Repetidas</button>
+    </div>
+  </div>
+
+  <p class="tab-info" id="tabInfoCollection">
+    Toque en una lamina para marcar/desmarcarla como obtenida.
+  </p>
+  <p class="tab-info dup-info" id="tabInfoDup" style="display:none">
+    Solo puede marcar como repetidas las laminas que ya tiene.<br>
+    <strong>Click</strong> = +1 • <strong>Click derecho</strong> = -1
+  </p>
+
+  <div class="table-wrap">
+    <table id="tabela"></table>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
